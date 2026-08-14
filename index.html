@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía visual paso a paso para usuarios principiantes: cómo instalar Windows 11 Home 64-bit desde cero en un portátil sin sistema operativo (FreeDOS / No OS).">
+    <title>Guía Completa: Instalar Windows 11 Home 64-Bit en Portátil sin SO</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <a href="#inicio" class="brand-container">
+            <div class="brand-icon">
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="brand-title">Win11 Manual Romero</div>
+        </a>
+
+        <div class="header-actions">
+            <div class="badge-romero">
+                <span>✨</span> Guía para Romero
+            </div>
+            <button class="btn-icon" id="themeToggleBtn" title="Cambiar tema" aria-label="Cambiar tema de color">
+                ☀️
+            </button>
+            <button class="btn-icon" onclick="window.print()" title="Imprimir o Guardar en PDF" aria-label="Imprimir guía">
+                🖨️
+            </button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+    </header>
+
+    <!-- App Container Layout -->
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="guide-sidebar">
+            <div>
+                <div class="sidebar-section-title">Índice de la Guía</div>
+                <ul class="nav-links">
+                    <li><a href="#requisitos" class="nav-link"><span class="nav-step-num">0</span> Requisitos Previos</a></li>
+                    <li><a href="#herramientas" class="nav-link"><span class="nav-step-num">📥</span> Enlaces de Descarga</a></li>
+                    <li><a href="#paso1" class="nav-link active"><span class="nav-step-num">1</span> Descargar ISO Oficial</a></li>
+                    <li><a href="#paso2" class="nav-link"><span class="nav-step-num">2</span> Crear USB Booteable</a></li>
+                    <li><a href="#paso3" class="nav-link"><span class="nav-step-num">3</span> Arrancar el Portátil</a></li>
+                    <li><a href="#paso4" class="nav-link"><span class="nav-step-num">4</span> Instalar Windows 11</a></li>
+                    <li><a href="#paso5" class="nav-link"><span class="nav-step-num">5</span> Configuración Inicial</a></li>
+                    <li><a href="#paso6" class="nav-link"><span class="nav-step-num">6</span> Puesta a Punto y Drivers</a></li>
+                    <li><a href="#faq" class="nav-link"><span class="nav-step-num">❓</span> Solución de Problemas</a></li>
+                </ul>
+            </div>
+
+            <div class="callout info" style="margin-top: 1rem; font-size: 0.82rem;">
+                <div class="callout-icon">💡</div>
+                <div>
+                    <strong>Consejo:</strong> Haz clic sobre cualquier captura para ampliarla a pantalla completa.
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Column -->
+        <main class="guide-content" id="inicio">
+            <!-- Hero Header -->
+            <div class="hero-card">
+                <div class="hero-badge-row">
+                    <span class="hero-pill">Windows 11 Home 64-Bit</span>
+                    <span class="hero-pill success">100% Oficial Microsoft</span>
+                    <span class="hero-pill warning">Portátiles FreeDOS / Sin SO</span>
+                </div>
+                <h1 class="hero-title">Cómo Instalar Windows 11 en un Portátil sin Sistema Operativo</h1>
+                <p class="hero-subtitle">
+                    Guía ilustrada y explicada paso a paso para Romero. Aprenderás a descargar la imagen oficial de Microsoft, preparar tu pendrive de instalación y dejar tu nuevo ordenador listo para funcionar de la forma más sencilla.
+                </p>
+
+                <div class="hero-meta-grid">
+                    <div class="hero-meta-item">
+                        <div class="hero-meta-icon">⏱️</div>
+                        <div class="hero-meta-text">
+                            <strong>Tiempo estimado</strong>
+                            <span>25 - 40 minutos</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <div class="hero-meta-icon">💾</div>
+                        <div class="hero-meta-text">
+                            <strong>Pendrive requerido</strong>
+                            <span>Mínimo 8 GB (vacío)</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <div class="hero-meta-icon">💻</div>
+                        <div class="hero-meta-text">
+                            <strong>Compatibilidad</strong>
+                            <span>HP, ASUS, Lenovo, Acer, MSI...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context Info -->
+            <div class="callout info">
+                <div class="callout-icon">ℹ️</div>
+                <div>
+                    <strong>¿Qué significa que tu portátil venga «Sin Sistema Operativo» (FreeDOS / No OS / Linux)?</strong><br>
+                    Muchos fabricantes venden portátiles más baratos sin Windows instalado para ahorrar el coste de la licencia. Al encenderlo por primera vez, verás una pantalla negra con letras blancas o un menú simple. No te preocupes: el hardware es exactamente el mismo y siguiendo esta guía lo dejarás con Windows 11 oficial y funcionando a la perfección.
+                </div>
+            </div>
+
+            <!-- SECTION 0: REQUISITOS PREVIOS -->
+            <section id="requisitos" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">0</div>
+                    <div>
+                        <h2 class="section-title">Requisitos Previos y Material Necesario</h2>
+                        <p class="section-desc">Asegúrate de tener todo listo antes de comenzar el proceso.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-container">
+                    <div class="checklist-header">
+                        <div class="checklist-title">
+                            <span>📋</span> Lista de comprobación interactiva
+                        </div>
+                        <div class="checklist-counter" id="checklistCounter">0 de 4 listos</div>
+                    </div>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <input type="checkbox" id="chk1">
+                            <div class="checklist-text">
+                                <strong>1. Memoria USB (Pendrive) de 8 GB o superior</strong>
+                                <span>¡Atención! Durante el proceso se borrará todo lo que haya dentro de la memoria USB. Guarda tus fotos o documentos previamente.</span>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <input type="checkbox" id="chk2">
+                            <div class="checklist-text">
+                                <strong>2. Otro ordenador con conexión a Internet</strong>
+                                <span>Lo necesitarás durante 10 minutos para descargar la imagen de Windows y grabarla en el USB (puede ser el ordenador de un amigo o familiar).</span>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <input type="checkbox" id="chk3">
+                            <div class="checklist-text">
+                                <strong>3. El nuevo portátil conectado a su cargador de corriente</strong>
+                                <span>No instales el sistema únicamente con la batería; si se apaga en mitad de la instalación podría dar errores.</span>
+                            </div>
+                        </li>
+                        <li class="checklist-item">
+                            <input type="checkbox" id="chk4">
+                            <div class="checklist-text">
+                                <strong>4. Clave de producto de Windows 11 (Opcional)</strong>
+                                <span>Si no tienes clave todavía, no pasa nada: puedes instalarlo sin clave pulsando «No tengo clave de producto» y activarlo más adelante.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION: ENLACES DIRECTOS Y HERRAMIENTAS -->
+            <section id="herramientas" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">📥</div>
+                    <div>
+                        <h2 class="section-title">Herramientas y Descargas Oficiales</h2>
+                        <p class="section-desc">Las 2 únicas herramientas que necesitas para todo el proceso.</p>
+                    </div>
+                </div>
+
+                <div class="download-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <!-- Microsoft ISO -->
+                    <div class="download-card featured">
+                        <span class="download-card-badge">Paso 1</span>
+                        <div class="download-card-header">
+                            <div class="download-card-icon">🪟</div>
+                            <div>
+                                <div class="download-card-title">Windows 11 ISO (Microsoft)</div>
+                                <span style="font-size: 0.75rem; color: #38bdf8;">Oficial 64-Bit Multi-edición</span>
+                            </div>
+                        </div>
+                        <p class="download-card-desc">
+                            Imagen ISO original que contiene <strong>Windows 11 Home</strong> y Pro. Directamente desde los servidores de Microsoft.
+                        </p>
+                        <a href="https://www.microsoft.com/es-es/software-download/windows11" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            Ir a Descarga Microsoft ↗
+                        </a>
+                    </div>
+
+                    <!-- Rufus Tool -->
+                    <div class="download-card featured">
+                        <span class="download-card-badge" style="background: #10b981;">Paso 2</span>
+                        <div class="download-card-header">
+                            <div class="download-card-icon">⚡</div>
+                            <div>
+                                <div class="download-card-title">Rufus (Grabador USB)</div>
+                                <span style="font-size: 0.75rem; color: #34d399;">Versión Portable</span>
+                            </div>
+                        </div>
+                        <p class="download-card-desc">
+                            La herramienta más rápida y sencilla para pasar la ISO al pendrive USB y dejarlo listo para arrancar en el portátil.
+                        </p>
+                        <a href="https://rufus.ie/es/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981, #059669);">
+                            Descargar Rufus ↗
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 1: NAVEGACIÓN Y DESCARGA DE LA ISO DE MICROSOFT -->
+            <section id="paso1" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">1</div>
+                    <div>
+                        <h2 class="section-title">Paso 1: Descargar la ISO de Windows 11 (Capturas Reales)</h2>
+                        <p class="section-desc">Sigue exactamente estos 4 sencillos clics en la web de Microsoft.</p>
+                    </div>
+                </div>
+
+                <div class="callout tip">
+                    <div class="callout-icon">💡</div>
+                    <div>
+                        <strong>¿La ISO incluye Windows 11 Home?</strong><br>
+                        ¡Sí! El archivo descargado es la ISO <em>Multi-edition</em> de 64 bits. Durante la instalación en el portátil, Windows te mostrará una lista donde elegirás <strong>Windows 11 Home</strong>.
+                    </div>
+                </div>
+
+                <!-- Sub-step 1.1 -->
+                <div class="step-container">
+                    <div class="step-header">
+                        <span class="step-num-pill">1.1</span>
+                        <h3 class="step-heading">Acceder a la página y bajar hasta «Descargar imagen de disco (ISO)»</h3>
+                    </div>
+                    <p class="step-body-text">
+                        Entra en el enlace oficial de Microsoft: <a href="https://www.microsoft.com/es-es/software-download/windows11" target="_blank" style="color:#38bdf8; font-weight:600;">microsoft.com/.../windows11</a>. Acepta el aviso de cookies si te aparece y baja por la página hasta encontrar la tercera sección llamada <strong>«Descargar imagen de disco de Windows 11 (ISO) para dispositivos x64»</strong>.
+                    </p>
+                    <div class="screenshot-wrapper">
+                        <img src="assets/images/paso1_seccion_iso.png" alt="Sección de descarga de imagen de disco ISO en la web de Microsoft" loading="lazy">
+                        <div class="screenshot-overlay">
+                            <span>🔍 1. Localiza el desplegable «Seleccionar descarga»</span>
+                            <span class="zoom-hint">Clic para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-step 1.2 -->
+                <div class="step-container">
+                    <div class="step-header">
+                        <span class="step-num-pill">1.2</span>
+                        <h3 class="step-heading">Seleccionar la versión y hacer clic en «Descargar ahora»</h3>
+                    </div>
+                    <p class="step-body-text">
+                        Abre el menú desplegable y marca la opción <strong>«Windows 11 (multi-edition ISO para dispositivos x64)»</strong>. A continuación, pulsa el botón azul <strong>«Descargar ahora»</strong>.
+                    </p>
+                    <div class="screenshot-wrapper">
+                        <img src="assets/images/paso2_seleccion_iso.png" alt="Desplegable seleccionado con Windows 11 multi-edition ISO y botón Descargar ahora" loading="lazy">
+                        <div class="screenshot-overlay">
+                            <span>🔍 2. Elige la versión multi-edición y pulsa «Descargar ahora»</span>
+                            <span class="zoom-hint">Clic para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-step 1.3 -->
+                <div class="step-container">
+                    <div class="step-header">
+                        <span class="step-num-pill">1.3</span>
+                        <h3 class="step-heading">Elegir el idioma del producto y pulsar «Confirmar»</h3>
+                    </div>
+                    <p class="step-body-text">
+                        Aparecerá un nuevo recuadro debajo titulado <em>«Seleccionar el idioma del producto»</em>. Haz clic en el desplegable <strong>«Elegir un idioma»</strong>, selecciona <strong>«Español»</strong> (o tu variante preferida) y haz clic en el botón azul <strong>«Confirmar»</strong>.
+                    </p>
+                    <div class="screenshot-wrapper">
+                        <img src="assets/images/paso3_idioma_confirmar.png" alt="Selección de idioma Español y botón Confirmar en la web de Microsoft" loading="lazy">
+                        <div class="screenshot-overlay">
+                            <span>🔍 3. Selecciona «Español» y pulsa «Confirmar»</span>
+                            <span class="zoom-hint">Clic para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-step 1.4 -->
+                <div class="step-container">
+                    <div class="step-header">
+                        <span class="step-num-pill">1.4</span>
+                        <h3 class="step-heading">Descargar el archivo ISO de 64 bits</h3>
+                    </div>
+                    <p class="step-body-text">
+                        Se generará tu enlace de descarga seguro. Pulsa sobre el botón azul <strong>«64-bit Descargar»</strong>. Se descargará un archivo con extensión <code>.iso</code> de aproximadamente 5 a 6 GB (ejemplo: <code>Win11_23H2_Spanish_x64v2.iso</code>). Guárdalo en tu carpeta de Descargas.
+                    </p>
+                    <div class="screenshot-wrapper">
+                        <img src="assets/images/paso4_boton_descarga.png" alt="Botón final 64-bit Descargar de Windows 11 Español" loading="lazy">
+                        <div class="screenshot-overlay">
+                            <span>🔍 4. Haz clic en «64-bit Descargar» para obtener la ISO oficial</span>
+                            <span class="zoom-hint">Clic para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 2: CREAR EL PENDRIVE CON RUFUS -->
+            <section id="paso2" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">2</div>
+                    <div>
+                        <h2 class="section-title">Paso 2: Crear el USB de Instalación con Rufus</h2>
+                        <p class="section-desc">Convierte tu pendrive en un disco de arranque para el nuevo portátil.</p>
+                    </div>
+                </div>
+
+                <p style="color: var(--text-light); margin-bottom: 1.25rem;">
+                    Conecta el pendrive USB en el ordenador donde has descargado la ISO y abre la aplicación <strong>Rufus</strong> (no requiere instalación, haz doble clic en el archivo <code>rufus.exe</code> descargado de <a href="https://rufus.ie" target="_blank" style="color:#38bdf8; font-weight: 600;">rufus.ie</a>).
+                </p>
+
+                <!-- Sub-step 2.1: Configuración Principal -->
+                <div class="step-container">
+                    <div class="step-header">
+                        <span class="step-num-pill">2.1</span>
+                        <h3 class="step-heading">Configurar la ventana principal de Rufus</h3>
+                    </div>
+                    <p class="step-body-text">
+                        Ajusta las opciones tal y como se muestra en la captura oficial de Rufus:
+                    </p>
+                    <div class="checklist-container" style="background: var(--bg-surface); margin: 0.75rem 0 1.25rem 0;">
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.7rem; font-size: 0.92rem; color: var(--text-light);">
+                            <li>🔹 <strong>Dispositivo:</strong> Asegúrate de que aparece tu pendrive USB (mínimo 8 GB).</li>
+                            <li>🔹 <strong>Elección de arranque:</strong> Haz clic en el botón <strong>«SELECCIONAR»</strong> y elige el archivo <code>.iso</code> de Windows 11 descargado.</li>
+                            <li>🔹 <strong>Esquema de partición:</strong> Selecciona <strong>GPT</strong>.</li>
+                            <li>🔹 <strong>Sistema de destino:</strong> Selecciona <strong>UEFI (no CSM)</strong>.</li>
+                            <li>🔹 <strong>Sistema de archivos:</strong> Deja NTFS (o el asignado automáticamente).</li>
+                            <li>🔹 Haz clic en el botón inferior <strong>«EMPEZAR»</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="screenshot-wrapper">
+                        <img src="assets/images/paso2_rufus_configuracion.png" alt="Captura de la ventana principal de configuración de Rufus" loading="lazy">
+                        <div class="screenshot-overlay">
+                            <span>🔍 2.1. Opciones principales en Rufus (GPT / UEFI / Seleccionar ISO)</span>
+                            <span class="zoom-hint">Clic para ampliar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-step 2.2: Opciones de Experiencia de Windows -->
+                <div class="step-container">
+                    <div class="step-header">
+                        <span class="step-num-pill">2.2</span>
+                        <h3 class="step-heading">Opciones de Experiencia de Usuario de Windows (Ventana Emergente)</h3>
+                    </div>
+                    <p class="step-body-text">
+                        Al pulsar «EMPEZAR», Rufus te mostrará una ventana con opciones especiales muy útiles:
+                    </p>
+                    <div class="screenshot-wrapper" style="max-width: 600px; margin: 0 auto 1.25rem auto;">
+                        <img src="assets/images/paso2_rufus_opciones.png" alt="Ventana emergente de opciones de experiencia de usuario en Rufus" loading="lazy">
+                        <div class="screenshot-overlay">
+                            <span>🔍 2.2. Ventana de personalización «Windows User Experience»</span>
+                            <span class="zoom-hint">Clic para ampliar</span>
+                        </div>
+                    </div>
+
+                    <div class="callout warning" style="margin-top: 1rem;">
+                        <div class="callout-icon">💡</div>
+                        <div>
+                            <strong>Opciones recomendadas a marcar:</strong>
+                            <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                                <li><strong>Eliminar el requisito de 4GB+ RAM, Secure Boot y TPM 2.0:</strong> Garantiza máxima compatibilidad.</li>
+                                <li><strong>Eliminar el requisito de una cuenta Microsoft en línea:</strong> Te permitirá crear un usuario normal local sin obligarte a poner correo durante la instalación.</li>
+                            </ul>
+                            Pulsa <strong>OK</strong> y confirma el aviso de que se borrará el contenido del pendrive. Espera unos 5-10 minutos hasta que la barra inferior se llene en verde y diga <strong>«Preparado»</strong>. ¡Tu USB ya está listo!
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 3: ARRANCAR EL PORTÁTIL DESDE EL USB -->
+            <section id="paso3" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">3</div>
+                    <div>
+                        <h2 class="section-title">Paso 3: Encender el Portátil y Arrancar desde el USB</h2>
+                        <p class="section-desc">Cómo acceder al Menú de Arranque (Boot Menu) según la marca de tu portátil.</p>
+                    </div>
+                </div>
+
+                <p style="color: var(--text-light); margin-bottom: 1.25rem;">
+                    1. Asegúrate de que el portátil nuevo esté <strong>completamente apagado</strong> y conectado a su cargador.<br>
+                    2. Conecta el pendrive USB en cualquier puerto USB del portátil.<br>
+                    3. Pulsa el botón de <strong>Encendido</strong> y, de forma inmediata y repetida, pulsa la <strong>tecla de Menú de Arranque (Boot Menu)</strong> que corresponda a la marca de tu equipo:
+                </p>
+
+                <!-- Search box for brand -->
+                <div style="margin-bottom: 1rem;">
+                    <input type="text" id="brandSearchInput" placeholder="🔍 Escribe la marca de tu portátil (ej. ASUS, HP, Lenovo...)" style="width:100%; padding:0.75rem 1rem; border-radius: var(--radius-sm); border:1px solid var(--border-color); background: var(--bg-surface-elevated); color:var(--text-main); font-size:0.9rem;">
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="custom-table" id="bootKeysTable">
+                        <thead>
+                            <tr>
+                                <th>Marca del Portátil</th>
+                                <th>Tecla Boot Menu (Recomendada)</th>
+                                <th>Tecla Entrar a BIOS</th>
+                                <th>Notas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ASUS</strong></td>
+                                <td><span class="key-badge">ESC</span> o <span class="key-badge">F8</span></td>
+                                <td><span class="key-badge">F2</span> o <span class="key-badge">SUPR</span></td>
+                                <td>Pulsar ESC repetidas veces nada más encender.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>HP (Hewlett-Packard)</strong></td>
+                                <td><span class="key-badge">F9</span></td>
+                                <td><span class="key-badge">F10</span> o <span class="key-badge">ESC</span></td>
+                                <td>Pulsar ESC para menú de inicio rápido y luego F9.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lenovo (IdeaPad, Legion, ThinkPad)</strong></td>
+                                <td><span class="key-badge">F12</span></td>
+                                <td><span class="key-badge">F2</span> o <span class="key-badge">Fn + F2</span></td>
+                                <td>Algunos modelos tienen el botón físico «Novo Button» en un lateral.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Acer</strong></td>
+                                <td><span class="key-badge">F12</span></td>
+                                <td><span class="key-badge">F2</span></td>
+                                <td>Si F12 no responde, entra en BIOS (F2) y activa «F12 Boot Menu: Enabled».</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dell</strong></td>
+                                <td><span class="key-badge">F12</span></td>
+                                <td><span class="key-badge">F2</span></td>
+                                <td>Pulsa F12 al ver el logotipo de Dell hasta ver «Preparing one-time boot».</td>
+                            </tr>
+                            <tr>
+                                <td><strong>MSI</strong></td>
+                                <td><span class="key-badge">F11</span></td>
+                                <td><span class="key-badge">SUPR / DEL</span></td>
+                                <td>Pulsar F11 repetidamente al encender.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gigabyte / AORUS</strong></td>
+                                <td><span class="key-badge">F12</span></td>
+                                <td><span class="key-badge">SUPR / DEL</span></td>
+                                <td>Pulsar F12.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Huawei / Honor</strong></td>
+                                <td><span class="key-badge">F12</span></td>
+                                <td><span class="key-badge">F2</span></td>
+                                <td>Mantener pulsado F12 al encender.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p style="color: var(--text-light); margin-top: 1rem;">
+                    En el menú que aparecerá en pantalla, usa las flechas del teclado para seleccionar tu <strong>memoria USB (ej. «UEFI: SanDisk...» o «UEFI: Kingston...»)</strong> y presiona <span class="key-badge">ENTER</span>. En pocos segundos verás el logotipo de Windows cargando el instalador.
+                </p>
+            </section>
+
+            <!-- PASO 4: PROCESO DE INSTALACIÓN PASO A PASO -->
+            <section id="paso4" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">4</div>
+                    <div>
+                        <h2 class="section-title">Paso 4: Proceso de Instalación de Windows 11</h2>
+                        <p class="section-desc">Guía pantalla a pantalla dentro del asistente oficial de instalación.</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <!-- Pantalla 1 -->
+                    <div class="accordion-item active">
+                        <button class="accordion-header">
+                            <span>1. Selección de Idioma, Formato de hora y Teclado</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content" style="max-height: 200px;">
+                            Selecciona <strong>Idioma: Español (España)</strong> (o tu país), Formato de hora y Teclado <strong>Español</strong>. Haz clic en <strong>Siguiente</strong> y luego en el botón central <strong>«Instalar ahora»</strong>.
+                        </div>
+                    </div>
+
+                    <!-- Pantalla 2 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>2. Activar Windows (Clave de producto)</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            Si tienes una clave de 25 caracteres escríbela aquí. Si no la tienes, haz clic abajo en el texto azul: <strong>«No tengo clave de producto»</strong>. Windows se instalará igualmente sin ninguna limitación para que puedas activarlo después.
+                        </div>
+                    </div>
+
+                    <!-- Pantalla 3 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>3. Seleccionar la Edición: Windows 11 Home</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            En la lista de ediciones disponibles, haz clic sobre <strong>Windows 11 Home</strong> (o la versión para la que vayas a comprar la licencia) y pulsa <strong>Siguiente</strong>. Acepta los Términos de Licencia marcando la casilla y pulsa <strong>Siguiente</strong>.
+                        </div>
+                    </div>
+
+                    <!-- Pantalla 4 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>4. Tipo de instalación: ¡Elegir «Personalizada (avanzada)»!</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            Verás dos opciones grandes. Haz clic en la segunda: <strong>«Personalizada: instalar solo Windows (avanzado)»</strong>.
+                        </div>
+                    </div>
+
+                    <!-- Pantalla 5 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>5. ¿Dónde deseas instalar Windows? (Gestión de Particiones del Portátil sin SO)</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>En un portátil nuevo sin SO, es habitual ver una o dos particiones pequeñas llamadas <em>FreeDOS</em>, <em>DriverCD</em> o <em>Unidad 0 Espacio sin asignar</em>.</p>
+                            <ul style="margin: 0.5rem 0 0.5rem 1.2rem;">
+                                <li>Si quieres una instalación 100% limpia: Selecciona cada partición de la <strong>Unidad 0</strong> y haz clic en el botón <strong>«Eliminar»</strong> (icono de papelera) hasta que solo te quede un único elemento llamado: <strong>«Unidad 0 Espacio sin asignar»</strong>.</li>
+                                <li>Haz clic sobre ese <strong>«Espacio sin asignar»</strong> y pulsa directamente en <strong>«Siguiente»</strong>. El instalador creará automáticamente todas las particiones del sistema necesarias.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pantalla 6 -->
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>6. Copia de archivos y Primer Reinicio (¡Muy Importante!)</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            El instalador copiará los archivos del 0% al 100% y preparará los componentes. Tras 5-10 minutos, el portátil indicará que se reiniciará en 10 segundos.<br><br>
+                            <strong style="color:#fbbf24;">⚡ REGLA DE ORO:</strong> En cuanto la pantalla del portátil se apague para reiniciarse, <strong>desconecta y retira el pendrive USB del portátil</strong>. Si lo dejas conectado, algunos ordenadores vuelven a cargar el instalador desde el principio en lugar de continuar con Windows.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 5: CONFIGURACIÓN INICIAL (OOBE) -->
+            <section id="paso5" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">5</div>
+                    <div>
+                        <h2 class="section-title">Paso 5: Configuración Inicial de Windows (OOBE)</h2>
+                        <p class="section-desc">Personalización de usuario, idioma y conexión a Internet.</p>
+                    </div>
+                </div>
+
+                <p style="color: var(--text-light); margin-bottom: 1.25rem;">
+                    El equipo se iniciará con la pantalla de bienvenida con música y fondo azul de Windows 11. Sigue estos sencillos pasos:
+                </p>
+
+                <div class="checklist-container" style="background: var(--bg-surface);">
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.92rem; color: var(--text-light);">
+                        <li>1️⃣ <strong>País o región:</strong> Elige tu país (ej. España) y pulsa «Sí».</li>
+                        <li>2️⃣ <strong>Distribución del teclado:</strong> Selecciona «Español» y haz clic en «Omitir» cuando te pregunte si deseas añadir una segunda distribución.</li>
+                        <li>3️⃣ <strong>Conexión a Red Wi-Fi:</strong> Selecciona tu red doméstica e introduce la contraseña del router.</li>
+                        <li>4️⃣ <strong>Cuenta de Usuario:</strong> Inicia sesión con tu cuenta de Microsoft (correo de Hotmail / Outlook / Gmail) o crea una cuenta nueva. Configura tu PIN de acceso rápido (4 o 6 números).</li>
+                        <li>5️⃣ <strong>Privacidad:</strong> Desactiva las opciones de diagnóstico o publicidad si lo prefieres y haz clic en «Aceptar».</li>
+                    </ul>
+                </div>
+
+                <!-- Truco Bypass NRO -->
+                <div class="callout warning">
+                    <div class="callout-icon">💡</div>
+                    <div>
+                        <strong>¿El portátil no detecta la red Wi-Fi o quieres crear una cuenta local sin correo?</strong><br>
+                        En la pantalla de conexión a red Wi-Fi, pulsa en tu teclado las teclas <span class="key-badge">Shift + F10</span> (en algunos portátiles <span class="key-badge">Shift + Fn + F10</span>). Se abrirá una ventana de comandos negra. Escribe exactamente el siguiente comando y pulsa <span class="key-badge">Enter</span>:
+                        <div class="code-box">
+                            <code>oobe\bypassnro</code>
+                            <button class="copy-btn" data-copy="oobe\bypassnro">Copiar comando</button>
+                        </div>
+                        El equipo se reiniciará automáticamente y en la pantalla de Wi-Fi aparecerá el botón <strong>«No tengo Internet»</strong> seguido de <strong>«Continuar con la configuración limitada»</strong> para crear tu nombre de usuario tradicional sin contraseña obligatoria ni cuenta online.
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 6: PUESTA A PUNTO Y DRIVERS -->
+            <section id="paso6" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">6</div>
+                    <div>
+                        <h2 class="section-title">Paso 6: Puesta a Punto, Drivers y Activación</h2>
+                        <p class="section-desc">Deja tu nuevo portátil con el máximo rendimiento y todos sus dispositivos funcionando.</p>
+                    </div>
+                </div>
+
+                <div class="checklist-container" style="background: var(--bg-surface-elevated);">
+                    <div class="checklist-title" style="margin-bottom: 1rem; color: #34d399;">
+                        🎯 3 Pasos finales recomendados:
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 1rem; display: block; margin-bottom: 0.25rem;">
+                                1. Ejecutar Windows Update (Instalación automática de Drivers)
+                            </strong>
+                            <p style="font-size: 0.88rem; color: var(--text-muted);">
+                                Ve a <em>Inicio > Configuración (rueda de engranaje) > Windows Update</em> y pulsa el botón <strong>«Buscar actualizaciones»</strong>. Windows descargará e instalará automáticamente los controladores de tarjeta gráfica, sonido, touchpad y Wi-Fi de tu fabricante. Reinicia el equipo cuando te lo solicite.
+                            </p>
+                        </div>
+
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 1rem; display: block; margin-bottom: 0.25rem;">
+                                2. Instalar el software de control oficial de tu marca (Opcional pero recomendado)
+                            </strong>
+                            <p style="font-size: 0.88rem; color: var(--text-muted);">
+                                Entra en Microsoft Store y descarga la app de gestión de batería y rendimiento oficial de tu portátil:
+                                <span style="display: block; margin-top: 0.35rem;">
+                                    • ASUS: <strong>MyASUS</strong> | Lenovo: <strong>Lenovo Vantage</strong> | HP: <strong>HP Support Assistant</strong> | Dell: <strong>Dell SupportAssist</strong>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div>
+                            <strong style="color: var(--text-main); font-size: 1rem; display: block; margin-bottom: 0.25rem;">
+                                3. Activar Windows 11
+                            </strong>
+                            <p style="font-size: 0.88rem; color: var(--text-muted);">
+                                Ve a <em>Configuración > Sistema > Activación > Cambiar la clave de producto</em> e introduce tu licencia original de Windows 11 Home para disfrutar de todas las funciones de personalización.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ & SOLUCIÓN DE PROBLEMAS -->
+            <section id="faq" class="guide-section">
+                <div class="section-header">
+                    <div class="step-indicator">❓</div>
+                    <div>
+                        <h2 class="section-title">Preguntas Frecuentes y Solución de Problemas</h2>
+                        <p class="section-desc">Soluciones a los fallos más comunes al instalar en equipos nuevos.</p>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>❌ Error común: «No se ha encontrado ninguna unidad de disco» durante la instalación</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            Si al llegar a la pantalla de particiones no aparece ningún disco duro, entra en la BIOS de tu portátil (<span class="key-badge">F2</span> o <span class="key-badge">SUPR</span> nada más encender), ve al menú <em>Advanced</em> o <em>Storage</em>, localiza la opción <strong>VMD Controller</strong> o <strong>Intel VMD</strong> y cámbiala a <strong>Disabled</strong>. Guarda cambios con <span class="key-badge">F10</span> y reinicia. El disco SSD aparecerá inmediatamente.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>❌ El touchpad o ratón táctil no se mueve durante la instalación</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            Es completamente normal: los drivers táctiles se instalan una vez cargado Windows. Durante el asistente puedes conectar un ratón USB tradicional o navegar usando la tecla <span class="key-badge">TAB</span>, las flechas y la barra espaciadora / Enter.
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>❌ El portátil vuelve a empezar la instalación desde el principio al reiniciarse</span>
+                            <span class="accordion-icon">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            Has olvidado retirar el pendrive USB. Apaga el portátil manteniendo pulsado el botón de encendido 5 segundos, desconecta el pendrive y vuelve a encenderlo normalmente. Windows continuará cargando desde el disco duro interno.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Image Modal / Lightbox -->
+    <div class="modal-lightbox" id="imageModal" role="dialog" aria-modal="true" aria-label="Visualizador de captura ampliada">
+        <button class="modal-close-btn" id="modalClose" aria-label="Cerrar vista previa">✕</button>
+        <img src="" alt="Captura ampliada" class="modal-content-img" id="modalImg">
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p><strong>Manual de Instalación de Windows 11</strong> — Diseñado especialmente para Romero.</p>
+        <p style="margin-top: 0.35rem; font-size: 0.78rem;">Todas las marcas, logotipos e imágenes pertenecen a sus respectivos propietarios (Microsoft Corporation).</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
