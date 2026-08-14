@@ -1,0 +1,11 @@
+services:
+  win11-guide:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: win11-guide-romero
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    labels:
+      - "coolify.managed=true"
