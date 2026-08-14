@@ -7,7 +7,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY . /usr/share/nginx/html
 
 # Exponer el puerto 80
-EXPOSE 80
+EXPOSE 80 3000
 
 # Comando de arranque por defecto
 CMD ["nginx", "-g", "daemon off;"]
